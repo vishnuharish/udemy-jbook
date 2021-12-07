@@ -6,6 +6,7 @@ import { fetchPlugin } from './plugins/fetchPlugin';
 
 const App: React.FC = () => {
     const serviceRef = useRef<any>();
+    const iframe = useRef<any>();
     const [input, setInput] = useState('');
     const [code, setCode] = useState('');
     const startService = async () => {
@@ -36,9 +37,22 @@ const App: React.FC = () => {
                 global: 'window'
             }
         })
-       setCode(result.outputFiles[0].text);
+        iframe.current.contentWindow.postMessage(result.outputFiles[0].text, '*')
+       // setCode(result.outputFiles[0].text);
     }
-
+    const html = `
+        <html>
+        <head></head>
+        <body>
+            <div id="root"></div>
+            <script>
+                window.addEventListener('message', (event) => {
+                  eval(event.data);
+                }, false);
+            </script>
+        </body>
+        </html>
+    `
     return (
         <div>
             <div>
@@ -46,6 +60,7 @@ const App: React.FC = () => {
             </div>
             <button onClick={onClick}>Submit</button>
             <pre>{code}</pre>
+            <iframe ref={iframe} sandbox="allow-scripts" srcDoc={html}/>
         </div>
     );
 }
