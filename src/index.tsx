@@ -8,7 +8,7 @@ const App: React.FC = () => {
     const serviceRef = useRef<any>();
     const iframe = useRef<any>();
     const [input, setInput] = useState('');
-    const [code, setCode] = useState('');
+
     const startService = async () => {
         serviceRef.current = await esbuild.startService(
             {
@@ -24,6 +24,7 @@ const App: React.FC = () => {
         if(!serviceRef.current){
             return;
         }
+        iframe.current.srcdoc = html;
         const result = await serviceRef.current.build({
             entryPoints: ['index.js'],
             bundle: true,
@@ -47,7 +48,13 @@ const App: React.FC = () => {
             <div id="root"></div>
             <script>
                 window.addEventListener('message', (event) => {
+                try {
                   eval(event.data);
+                } catch (err){
+                  const root = document.querySelector("#root");
+                  root.innerHTML = '<div style = "color: red;" ><h4>RunTimeError:</h4>'+ err +'</div>';
+                  console.error(err);
+                }
                 }, false);
             </script>
         </body>
@@ -59,8 +66,10 @@ const App: React.FC = () => {
                 <textarea onChange = { e =>  setInput(e.target.value)}></textarea>
             </div>
             <button onClick={onClick}>Submit</button>
-            <pre>{code}</pre>
-            <iframe ref={iframe} sandbox="allow-scripts" srcDoc={html}/>
+            <br />
+            <div>
+             <iframe  title="preview" ref={iframe} sandbox="allow-scripts" srcDoc={html}/>
+            </div>
         </div>
     );
 }
