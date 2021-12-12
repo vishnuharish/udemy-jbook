@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import * as esbuild from "esbuild-wasm";
 import { unpkgPathPlugin } from './plugins/unpkgPathPlugin';
 import { fetchPlugin } from './plugins/fetchPlugin';
+import Editor from './components/Editor';
 
 const App: React.FC = () => {
     const serviceRef = useRef<any>();
@@ -68,7 +69,8 @@ const App: React.FC = () => {
             <button onClick={onClick}>Submit</button>
             <br />
             <div>
-             <iframe  title="preview" ref={iframe} sandbox="allow-scripts" srcDoc={html}/>
+                <Editor onChange={ (value) => setInput(value) }initialValue="const a  = 1;"/>
+                <iframe  title="preview" ref={iframe} sandbox="allow-scripts" srcDoc={html}/>
             </div>
         </div>
     );
