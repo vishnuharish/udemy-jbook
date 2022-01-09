@@ -1,3 +1,4 @@
+import 'bulmaswatch/superhero/bulmaswatch.min.css';
 import ReactDOM from 'react-dom';
 import React, {useEffect, useRef, useState} from 'react';
 import * as esbuild from "esbuild-wasm";
@@ -64,12 +65,12 @@ const App: React.FC = () => {
     return (
         <div>
             <div>
+                <Editor onChange={ (value) => setInput(value) }initialValue="const a  = 1;"/>
                 <textarea onChange = { e =>  setInput(e.target.value)}></textarea>
             </div>
             <button onClick={onClick}>Submit</button>
             <br />
             <div>
-                <Editor onChange={ (value) => setInput(value) }initialValue="const a  = 1;"/>
                 <iframe  title="preview" ref={iframe} sandbox="allow-scripts" srcDoc={html}/>
             </div>
         </div>
