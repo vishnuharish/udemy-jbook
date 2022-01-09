@@ -1,17 +1,23 @@
 {
   "files": {
-    "main.js": "/udemy-jbook/static/js/main.2eb23afc.chunk.js",
-    "main.js.map": "/udemy-jbook/static/js/main.2eb23afc.chunk.js.map",
+    "main.css": "/udemy-jbook/static/css/main.27afb2f7.chunk.css",
+    "main.js": "/udemy-jbook/static/js/main.63b9cfd4.chunk.js",
+    "main.js.map": "/udemy-jbook/static/js/main.63b9cfd4.chunk.js.map",
     "runtime-main.js": "/udemy-jbook/static/js/runtime-main.f214ffd0.js",
     "runtime-main.js.map": "/udemy-jbook/static/js/runtime-main.f214ffd0.js.map",
-    "static/js/2.c7a39dca.chunk.js": "/udemy-jbook/static/js/2.c7a39dca.chunk.js",
-    "static/js/2.c7a39dca.chunk.js.map": "/udemy-jbook/static/js/2.c7a39dca.chunk.js.map",
+    "static/css/2.cbd7daf2.chunk.css": "/udemy-jbook/static/css/2.cbd7daf2.chunk.css",
+    "static/js/2.8bf52264.chunk.js": "/udemy-jbook/static/js/2.8bf52264.chunk.js",
+    "static/js/2.8bf52264.chunk.js.map": "/udemy-jbook/static/js/2.8bf52264.chunk.js.map",
     "index.html": "/udemy-jbook/index.html",
-    "static/js/2.c7a39dca.chunk.js.LICENSE.txt": "/udemy-jbook/static/js/2.c7a39dca.chunk.js.LICENSE.txt"
+    "static/css/2.cbd7daf2.chunk.css.map": "/udemy-jbook/static/css/2.cbd7daf2.chunk.css.map",
+    "static/css/main.27afb2f7.chunk.css.map": "/udemy-jbook/static/css/main.27afb2f7.chunk.css.map",
+    "static/js/2.8bf52264.chunk.js.LICENSE.txt": "/udemy-jbook/static/js/2.8bf52264.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f214ffd0.js",
-    "static/js/2.c7a39dca.chunk.js",
-    "static/js/main.2eb23afc.chunk.js"
+    "static/css/2.cbd7daf2.chunk.css",
+    "static/js/2.8bf52264.chunk.js",
+    "static/css/main.27afb2f7.chunk.css",
+    "static/js/main.63b9cfd4.chunk.js"
   ]
 }
